@@ -1,18 +1,14 @@
 import './App.css'
-import { Icon } from "./components/atoms/icon/Icon";
 import { WiDayCloudyGusts } from "react-icons/wi";
+import Header from "./components/header/Header";
 
 function App() {
 
   return (
     <>
-    <p>hola</p>
-    <WiDayCloudyGusts color='red'/>
-      <Icon>
-        <WiDayCloudyGusts/>
-      </Icon>
+      <Header/>
     </>
-  )
+  );
 }
 
 export default App
