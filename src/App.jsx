@@ -1,12 +1,13 @@
 import './App.css'
-import { WiDayCloudyGusts } from "react-icons/wi";
 import Header from "./components/header/Header";
+import Home from './routes/home/Home';
 
 function App() {
 
   return (
     <>
-      <Header/>
+      <Header />
+      <Home />
     </>
   );
 }

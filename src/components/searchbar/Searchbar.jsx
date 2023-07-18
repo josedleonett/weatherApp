@@ -1,34 +1,26 @@
-import { useState } from "react";
-import { FaSearch, FaCrosshairs } from "react-icons/fa";
+import { TbReload } from "react-icons/tb"; 
+import { MdDarkMode } from "react-icons/md"; 
+import { MdLightMode } from "react-icons/md";
+import React from 'react'
+import SearchInput from '../searchInput/SearchInput';
+import Navbar from "../navbar/Navbar";
+
 
 const Searchbar = () => {
-  const [input, setInput] = useState("");
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-  };
-
-  const inputChangeHandler = (event) => {
-    setInput(event.target.value);
-  };
-
   return (
     <div>
-      <form onSubmit={submitHandler}>
-        <label htmlFor="searchInput">
-          <FaSearch/>
-          <input
-            id="searhInput"
-            type="search"
-            placeholder="Buscar Lugares"
-            value={input}
-            onChange={inputChangeHandler}
-          />
-          <FaCrosshairs/>
-        </label>
-      </form>
+      <p>Pronostico</p>
+      <Navbar />
+      <SearchInput />
+      <button>
+        <TbReload />
+      </button>
+      <button>
+        <MdLightMode />
+        <MdDarkMode />
+      </button>
     </div>
   );
-};
+}
 
-export default Searchbar;
+export default Searchbar
