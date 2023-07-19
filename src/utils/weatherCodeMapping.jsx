@@ -1,4 +1,10 @@
 export const weatherCodeMapping = {
+  0: {
+    weatherCondition: "Clear sky",
+    imgDay: "DAY_00",
+    imgNightFullMoon: "NFM_00",
+    imgNightHalfMoon: "NHM_00",
+  },
   1: {
     weatherCondition: "Mainly clear",
     imgDay: "DAY_01",
