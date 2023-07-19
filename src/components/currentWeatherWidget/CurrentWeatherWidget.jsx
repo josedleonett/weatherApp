@@ -72,6 +72,7 @@ const CurrentWeatherWidget = ({
         <CurrentWeatherDetails
           weatherElementTitle={"Humidity "}
           icon={<BsDropletHalf />}
+          value={"falta agregar humedad"}
         />
         <CurrentWeatherDetails
           weatherElementTitle={"Visibility"}
