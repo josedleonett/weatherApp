@@ -7,7 +7,6 @@ import { ContextGlobal } from "../../utils/global.context";
 
 const Home = () => {
   const { state, dispatch } = useContext(ContextGlobal);
-  const [weather, setWeather] = useState({});
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const lat = params.get("lat");

@@ -1,6 +1,7 @@
-import { WiWindDeg } from "react-icons/wi"; 
-import { FaInfoCircle } from "react-icons/fa"; 
+import { WiWindDeg } from "react-icons/wi";
+import { FaInfoCircle } from "react-icons/fa";
 import React from 'react'
+import style from "./CurrentWeatherDetails.module.css";
 
 const CurrentWeatherDetails = ({
   weatherElementTitle,
@@ -11,19 +12,21 @@ const CurrentWeatherDetails = ({
   icon,
 }) => {
   return (
-    <div>
-      {icon}
+    <div className={style}>
       <p>
-        {weatherElementTitle} <FaInfoCircle />
+        {icon} {weatherElementTitle} <FaInfoCircle />
       </p>
       <div>
         <p>
           {value} {unit}
         </p>
-        {windDirection && <WiWindDeg rotate={windDirection} />}
+        {windDirection && (
+          <WiWindDeg transform={`rotate(${windDirection})`} />
+        )}
       </div>
     </div>
   );
 };
 
-export default CurrentWeatherDetails
+export default CurrentWeatherDetails;
+

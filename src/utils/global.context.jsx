@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useReducer } from "react";
 import { paletteList } from "./paletteList";
+import { weatherCodeMapping } from "./weatherCodeMapping";
 
 const getStoredThemeMode = () => {
   return localStorage.getItem("theme");
@@ -16,6 +17,7 @@ export const initialState = {
   favoritesLocations: [],
   themeMode: getStoredThemeMode() || "light",
   themeColor: getStoredThemeColor() || paletteList[0],
+  weatherCodeMapping: weatherCodeMapping,
 };
 
 export const changeThemeColor = (newThemeColor) => {

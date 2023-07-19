@@ -1,3 +1,7 @@
+import { MdDewPoint } from "react-icons/md"; 
+import { WiBarometer } from "react-icons/wi"; 
+import { GiBinoculars } from "react-icons/gi"; 
+import { BsDropletHalf } from "react-icons/bs"; 
 import { GiWindsock } from "react-icons/gi"; 
 import React, { useContext } from 'react'
 import CurrentWeatherDetails from '../currentWeatherDetails/CurrentWeatherDetails';
@@ -9,75 +13,28 @@ const CurrentWeatherWidget = ({
 }) => {
   const { state } = useContext(ContextGlobal);
 
+
+    const getWeatherCondition = (wmoCode) => {
+    const weatherCodeMapping = state.weatherCodeMapping;
+    if (wmoCode in weatherCodeMapping) {
+      return state.weatherCodeMapping[wmoCode].weatherCondition;
+    } else {
+      return "Unknown weather";
+    }
+  };
+
+  const getApparentTemperature = () => {
+    return state.weather.current_weather.apparentTemperature;
+  };
+
   const temperature = state.weather.current_weather.temperature;
   const TemperatureUnits = state.weather.hourly_units.temperature_2m;
-  const weatherCondition = () => {
-    const WMOCode = state.current_weather.weathercode;
-    switch (WMOCode) {
-      case 0:
-        return "Clear sky";
-      case 1:
-        return "Mainly clear";
-      case 2:
-        return "Partly cloudy";
-      case 3:
-        return "Overcast";
-      case 1:
-        return "Fog";
-      case 1:
-        return "Rime fog";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-      case 1:
-        return "Mainly clear";
-    
-      default:
-        break;
-    }
-  }
-  const apparentTemperature = () => {
-    state.weather.current_weather.apparentTemperature;
-  };
+  const weathercode = state.weather.current_weather.weathercode;
+  const weatherCondition = getWeatherCondition(weathercode);
+  const apparentTemperature = getApparentTemperature();
+  const windspeed = state.weather.current_weather.windspeed;
+  const windspeedUnit = state.weather.hourly_units.windspeed_10m;
+  const windDirection = state.weather.current_weather.winddirection;
 
 
   const weatherConditionMessage = () => {
@@ -97,18 +54,37 @@ const CurrentWeatherWidget = ({
           <p>{TemperatureUnits}</p>
         </div>
         <div>
-          <p>{weatherCondition()}</p>
+          <p>{weatherCondition}</p>
           <p>{apparentTemperature}°</p>
         </div>
       </div>
       <div>
-        <p>
-          {weatherConditionMessage()}. Min temperature will be {minTemperature}
-          °.
-        </p>
+        <p>Min temperature will be {minTemperature}°.</p>
       </div>
       <div>
-        <CurrentWeatherDetails icon={<GiWindsock />}  />
+        <CurrentWeatherDetails
+          weatherElementTitle="Wind"
+          icon={<GiWindsock />}
+          value={windspeed}
+          unit={windspeedUnit}
+          windDirection={windDirection}
+        />
+        <CurrentWeatherDetails
+          weatherElementTitle={"Humidity "}
+          icon={<BsDropletHalf />}
+        />
+        <CurrentWeatherDetails
+          weatherElementTitle={"Visibility"}
+          icon={<GiBinoculars />}
+        />
+        <CurrentWeatherDetails
+          weatherElementTitle={"Presure"}
+          icon={<WiBarometer />}
+        />
+        <CurrentWeatherDetails
+          weatherElementTitle={"Dew Point"}
+          icon={<MdDewPoint />}
+        />
       </div>
     </>
   );
