@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ContextGlobal } from "../../utils/global.context";
 import PropTypes from "prop-types";
 import styles from "./CurrentWeatherDetails.module.css";
@@ -25,7 +25,8 @@ const CurrentWeatherDetails = ({
 
       <div className={`${styles.value}`}>
         <p>
-          {value}{unit}
+          {value}
+          {unit}
         </p>
         {windDirection && (
           <WiWindDeg transform={`rotate(${windDirection + 180})`} />
