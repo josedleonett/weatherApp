@@ -6,6 +6,7 @@ import { GiWindsock } from "react-icons/gi";
 import React, { useContext } from "react";
 import CurrentWeatherDetails from "../currentWeatherDetails/CurrentWeatherDetails";
 import { ContextGlobal } from "../../utils/global.context";
+import styles from "./CurrentWeatherWidget.module.css";
 
 const CurrentWeatherWidget = ({ minTemperature, wind }) => {
   const { state } = useContext(ContextGlobal);
@@ -51,7 +52,7 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
   const dewpointPerHourList = state.weather.hourly.dewpoint_2m;
   const dewpoint = weatherDataMatcher(currentTime, dewpointPerHourList);
   const dewpointUnit = state.weather.hourly_units.dewpoint_2m;
-  
+
   const infoMessages = {
     wind: "La velocidad y dirección del aire en un lugar específico. Indica la fuerza y dirección del flujo de aire y puede influir en la sensación térmica y las condiciones climáticas.",
 
@@ -76,7 +77,7 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
   };
 
   return (
-    <>
+    <div className={`${styles.container} ${styles[state.theme]}`}>
       <div>
         <p>El tiempo actual</p>
         <p>{state.weather.current_weather.time}</p>
@@ -95,7 +96,7 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
       <div>
         <p>Min temperature will be {minTemperature}°.</p>
       </div>
-      <div>
+      <div className={`${styles.currentWeatherDetailsContainer}`}>
         <CurrentWeatherDetails
           weatherElementTitle="Wind"
           icon={<GiWindsock />}
@@ -105,7 +106,7 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
           infoMessage={infoMessages.wind}
         />
         <CurrentWeatherDetails
-          weatherElementTitle={"Humidity "}
+          weatherElementTitle={"Humidity"}
           icon={<BsDropletHalf />}
           value={humidity}
           unit={humidityUnit}
@@ -133,7 +134,7 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
           infoMessage={infoMessages.dewPoint}
         />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,9 @@
+import React, { useContext, useState } from "react";
+import { ContextGlobal } from "../../utils/global.context";
+import PropTypes from "prop-types";
+import styles from "./CurrentWeatherDetails.module.css";
 import { BsInfoCircle } from "react-icons/bs";
 import { WiWindDeg } from "react-icons/wi";
-import React from "react";
-import style from "./CurrentWeatherDetails.module.css";
 
 const CurrentWeatherDetails = ({
   weatherElementTitle,
@@ -11,14 +13,19 @@ const CurrentWeatherDetails = ({
   windDirection,
   icon,
 }) => {
+  const { state } = useContext(ContextGlobal);
+
   return (
-    <div className={style}>
-      <p>
-        {icon} {weatherElementTitle} <BsInfoCircle />
-      </p>
-      <div>
+    <div className={`${styles.container} ${styles[state.theme]}`}>
+      <div className={`${styles.title}`}>
+        {icon}
+        <p>{weatherElementTitle}</p>
+        <BsInfoCircle />
+      </div>
+
+      <div className={`${styles.value}`}>
         <p>
-          {value} {unit}
+          {value}{unit}
         </p>
         {windDirection && (
           <WiWindDeg transform={`rotate(${windDirection + 180})`} />
@@ -26,6 +33,15 @@ const CurrentWeatherDetails = ({
       </div>
     </div>
   );
+};
+
+CurrentWeatherDetails.propTypes = {
+  weatherElementTitle: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  unit: PropTypes.string.isRequired,
+  infoMessage: PropTypes.string,
+  windDirection: PropTypes.number,
+  icon: PropTypes.element,
 };
 
 export default CurrentWeatherDetails;
