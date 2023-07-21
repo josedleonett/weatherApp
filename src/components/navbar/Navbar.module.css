@@ -1,28 +1,38 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 0.5rem;
+    gap: 0.8rem;
 }
 
 .navbar ul {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.8rem;
+
 }
+
 .navbar ul li {
     display: flex;
-    flex-direction: row;    
+    flex-direction: row;
     text-decoration: none;
 
+}
+
+.navbar ul li * {
+    color: var(--color-text-light);
+}
+
+.navbar .buttonContainer {
+    gap: 0.8rem;
 }
 
 .navbar button {
     background: none;
     border: 0;
     cursor: pointer;
-    height: 100%;
 }
 
 /* Light Mode Theme */
@@ -31,8 +41,23 @@
     background-color: var(--color-primary-light);
 }
 
+.navbar.light ul li * {
+    color: var(--color-text-light);
+}
+
+.navbar.light .buttonContainer * {
+    color: var(--color-text-light);
+}
+
 /* Dark Mode Theme */
 .navbar.dark {
     color: var(--color-text-dark);
     background-color: var(--color-primary-dark);
+}
+
+.navbar.dark ul li * {
+    color: var(--color-text-dark);
+}
+.navbar.dark .buttonContainer * {
+    color: var(--color-text-dark);
 }

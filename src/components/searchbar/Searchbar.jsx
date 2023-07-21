@@ -6,9 +6,11 @@ import SearchInput from "../searchInput/SearchInput";
 import Navbar from "../navbar/Navbar";
 import { ContextGlobal } from "../../utils/global.context";
 import styles from "./Searchbar.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Searchbar = () => {
   const { state, dispatch, changeThemeColor } = useContext(ContextGlobal);
+  const navigate = useNavigate()
 
   const handleThemeModeChange = () => {
     const newTheme = state.themeMode === "light" ? "dark" : "light";
@@ -28,7 +30,7 @@ const Searchbar = () => {
     <div className={`${styles.searchbar}`}>
       <Navbar />
       <SearchInput />
-      <button>
+      <button onClick={navigate(0)}>
         <TbReload />
       </button>
       <button onClick={handleThemeModeChange}>

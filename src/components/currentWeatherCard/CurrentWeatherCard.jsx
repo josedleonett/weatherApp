@@ -11,9 +11,21 @@ import styles from "./CurrentWeatherCard.module.css";
 const CurrentWeatherCard = ({ minTemperature, wind }) => {
   const { state } = useContext(ContextGlobal);
 
-  const formatDate = {
-    date: (fullDate) => { fullDate.trim()}
-  }
+
+  const fulldate = "2023-07-20T01:00";
+  const dateObj = new Date(fulldate);
+
+  const formattedDate = dateObj.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  const formattedTime = dateObj.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+
 
   const getWeatherCondition = (wmoCode) => {
     const weatherCodeMapping = state.weatherCodeMapping;
@@ -83,8 +95,8 @@ const CurrentWeatherCard = ({ minTemperature, wind }) => {
   return (
     <div className={`${styles.currentWeatherCard} ${styles[state.themeMode]}`}>
       <div>
-        <p>Current weather</p>
         <p>{state.weather.current_weather.time}</p>
+        <p>Current weather</p>
       </div>
       <div>
         <img src="/svg/weatherImages/cloudy.svg" alt="cloud" />

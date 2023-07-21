@@ -4,6 +4,7 @@ import styles from "./Navbar.module.css";
 import { TbReload } from "react-icons/tb";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import SearchInput from "../searchInput/SearchInput";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { state, dispatch, changeThemeColor } = useContext(ContextGlobal);
@@ -25,12 +26,18 @@ const Navbar = () => {
   return (
     <nav className={`${styles.navbar} ${styles[state.themeMode]}`}>
       <ul>
-        <li>inicio</li>
-        <li>Favoritos</li>
-        <li>Detalles</li>
+        <li>
+          <Link to="/location/">Inicio</Link>
+        </li>
+        <li>
+          <Link>Favoritos</Link>
+        </li>
+        <li>
+          <Link>Detalles</Link>
+        </li>
       </ul>
       <SearchInput />
-      <div>
+      <div className={`${styles.buttonContainer}`}>
         <button>
           <TbReload />
         </button>
