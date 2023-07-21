@@ -40,23 +40,23 @@ const reducer = (state, action) => {
     case "SET_WEATHER":
       return { ...state, weather: action.payload };
 
-    // case "SET_THEME_MODE":
-    //   localStorage.setItem("themeMode", action.payload);
-    //   return { ...state, themeMode: action.payload };
+    case "SET_THEME_MODE":
+      localStorage.setItem("themeMode", action.payload);
+      return { ...state, themeMode: action.payload };
 
-    // case "SET_THEME_COLOR":
-    //   const selectedThemeColor = state.themeColor.find(
-    //     (color) => color.index === action.payload
-    //   );
-    //   if (selectedThemeColor) {
-    //     localStorage.setItem(
-    //       "themeColor",
-    //       JSON.stringify(selectedThemeColor)
-    //     );
-    //     changeThemeColor(selectedThemeColor);
-    //     return { ...state, selectedThemeColor };
-    //   }
-    //   return state;
+    case "SET_THEME_COLOR":
+      const selectedThemeColor = state.themeColor.find(
+        (color) => color.index === action.payload
+      );
+      if (selectedThemeColor) {
+        localStorage.setItem(
+          "themeColor",
+          JSON.stringify(selectedThemeColor)
+        );
+        changeThemeColor(selectedThemeColor);
+        return { ...state, selectedThemeColor };
+      }
+      return state;
 
     // case "ADD_FAVORITE":
     //   const updatedFavorites = [...state.dentistFavorites, action.payload];

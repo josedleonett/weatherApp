@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import CurrentWeatherWidget from "../../components/currentWeatherWidget/CurrentWeatherWidget";
+import CurrentWeatherCard from "../../components/currentWeatherCard/CurrentWeatherCard";
 import { useLocation } from "react-router-dom";
 import { ContextGlobal } from "../../utils/global.context";
 
@@ -32,7 +32,7 @@ const Home = () => {
       <p>{lat}</p>
       <p>{lon}</p>
       {lat && lon && state.weather.current_weather?.time && (
-        <CurrentWeatherWidget />
+        <CurrentWeatherCard />
       )}
     </div>
   );

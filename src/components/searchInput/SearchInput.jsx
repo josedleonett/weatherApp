@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaSearch, FaCrosshairs } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import styles from "./SearchInput.module.css";
+import { ContextGlobal } from "../../utils/global.context";
 
 const SearchInput = () => {
+  const { state } = useContext(ContextGlobal);
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -35,7 +38,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div>
+    <div className={`${styles.searchInput} ${styles[state.themeMode]}`}>
       <form onSubmit={submitHandler}>
         <label htmlFor="searchInput">
           <button type="submit">

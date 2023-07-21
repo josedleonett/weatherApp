@@ -1,0 +1,22 @@
+/* Generals styles for CurrentWeatherWidget */
+.currentWeatherCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.currentWeatherDetailsContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.currentWeatherCard.light {
+    color: var(--color-text-light);
+    background: var(--color-background-light);
+}
+
+.currentWeatherCard.dark {
+    color: var(--color-text-dark);
+    background: var(--color-background-dark);
+}

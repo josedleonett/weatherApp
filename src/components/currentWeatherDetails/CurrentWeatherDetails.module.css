@@ -1,4 +1,5 @@
-.container {
+/* Generals styles for CurrentWeatherDetails */
+.currentWeatherDetails {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -15,13 +16,31 @@
     font-size: small;
     text-transform: capitalize;
     gap: 0.3em;
-    color: var(--color-text-dark);
-  }
+}
 
 .value {
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: large;
+}
+
+/* Light Mode Theme */
+.title.light {
+    color: var(--color-text-dark);
+}
+
+.value.light {
     color: var(--color-text-light);
+
+}
+
+/* Dark Mode Theme */
+.title.dark {
+    color: var(--color-text-light);
+}
+
+.value.dark {
+    color: var(--color-text-dark);
+
 }

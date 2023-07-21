@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.navbar ul li {
+    display: flex;
+    flex-direction: row;    
+    text-decoration: none;
+
+}
+
+.navbar button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+}
+
+/* Light Mode Theme */
+.navbar.light {
+    color: var(--color-text-light);
+    background-color: var(--color-primary-light);
+}
+
+/* Dark Mode Theme */
+.navbar.dark {
+    color: var(--color-text-dark);
+    background-color: var(--color-primary-dark);
+}

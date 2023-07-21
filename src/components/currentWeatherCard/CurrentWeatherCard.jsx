@@ -6,10 +6,14 @@ import { GiWindsock } from "react-icons/gi";
 import React, { useContext } from "react";
 import CurrentWeatherDetails from "../currentWeatherDetails/CurrentWeatherDetails";
 import { ContextGlobal } from "../../utils/global.context";
-import styles from "./CurrentWeatherWidget.module.css";
+import styles from "./CurrentWeatherCard.module.css";
 
-const CurrentWeatherWidget = ({ minTemperature, wind }) => {
+const CurrentWeatherCard = ({ minTemperature, wind }) => {
   const { state } = useContext(ContextGlobal);
+
+  const formatDate = {
+    date: (fullDate) => { fullDate.trim()}
+  }
 
   const getWeatherCondition = (wmoCode) => {
     const weatherCodeMapping = state.weatherCodeMapping;
@@ -77,9 +81,9 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
   };
 
   return (
-    <div className={`${styles.container} ${styles[state.theme]}`}>
+    <div className={`${styles.currentWeatherCard} ${styles[state.themeMode]}`}>
       <div>
-        <p>El tiempo actual</p>
+        <p>Current weather</p>
         <p>{state.weather.current_weather.time}</p>
       </div>
       <div>
@@ -138,4 +142,4 @@ const CurrentWeatherWidget = ({ minTemperature, wind }) => {
   );
 };
 
-export default CurrentWeatherWidget;
+export default CurrentWeatherCard;

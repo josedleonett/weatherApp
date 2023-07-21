@@ -1,0 +1,17 @@
+/* Generals styles for Header */
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Light Mode Theme */
+/* .header.light {
+    color: var(--color-text-light);
+    background-color: var(--color-primary-light);
+} */
+
+/* Dark Mode Theme */
+/* .header.dark {
+    color: var(--color-text-dark);
+    background-color: var(--color-primary-dark);
+} */

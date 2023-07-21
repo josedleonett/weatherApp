@@ -16,7 +16,7 @@ const CurrentWeatherDetails = ({
   const { state } = useContext(ContextGlobal);
 
   return (
-    <div className={`${styles.container} ${styles[state.theme]}`}>
+    <div className={`${styles.currentWeatherDetails} ${styles[state.themeMode]}`}>
       <div className={`${styles.title}`}>
         {icon}
         <p>{weatherElementTitle}</p>

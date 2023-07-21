@@ -1,0 +1,24 @@
+/* Generals styles for Tabs */
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.tabs ul li {
+    display: flex;
+    text-decoration: none;
+}
+
+/* Light Mode Theme */
+.tabs.light {
+    color: var(--color-text-light);
+    background-color: var(--color-secondary-light);
+}
+
+/* Dark Mode Theme */
+.tabs.dark {
+    color: var(--color-text-dark);
+    background-color: var(--color-secondary-dark);
+}

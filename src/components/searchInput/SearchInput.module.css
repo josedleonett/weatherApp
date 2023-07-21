@@ -1,0 +1,35 @@
+
+
+.searchInput label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background-light);
+    padding: 0.2rem;
+    border-radius: 50px;
+    width: 40vw;
+}
+
+.searchInput input {
+    border-width: 0;
+    outline: none;
+    background-color: var(--color-background-light);
+    width: 100%;
+}
+
+.searchInput button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 100%;
+}
+
+/* .searchInput.light button {
+    color: var(--color-text-light);
+    
+}
+
+.searchInput.dark button {
+    color: var(--color-text-dark);
+
+} */
